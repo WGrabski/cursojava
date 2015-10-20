@@ -1,3 +1,16 @@
+# Revenda de Carros #
+	Desenvolvimento do sistema de revenda de carros.
+
+# Componentes da Equipe #
+	1. Wyllian
+	2. Tayrone
+	3. Douglas Acosta
+	4. Renan
+	
+# Desenvolvedora #
+	* Estouro de Fac�o *
+
+
 # Projeto Exemplo #
 O projeto pode ser utilizado como base para a construção de uma aplicação de cadastro e consultas simples.
 A aplicação utiliza as seguintes tecnologias:
