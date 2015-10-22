@@ -8,7 +8,7 @@
 	4. Renan
 	
 # Desenvolvedora #
-	* Estouro de Facão *
+	* Javai devTeam *
 
 
 # Projeto Exemplo #
