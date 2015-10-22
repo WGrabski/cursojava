@@ -20,7 +20,7 @@ public class BancoDeDados {
 	 */
 	public static final EntityManager abreEntityManager(){
 		if (construtorEntityManagers == null){
-			Persistence.createEntityManagerFactory("samples");
+			construtorEntityManagers = Persistence.createEntityManagerFactory("samples");
 		}
 		
 		return construtorEntityManagers.createEntityManager();
