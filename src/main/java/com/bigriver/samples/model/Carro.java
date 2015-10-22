@@ -59,4 +59,10 @@ public class Carro {
 		this.placa = placa;
 	}
 	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return marca + " " + modelo + " " + ano + " " + placa;
+	}
+	
 }

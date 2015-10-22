@@ -2,12 +2,14 @@ package com.bigriver.samples;
 
 import com.bigriver.samples.dao.CarroDAO;
 import com.bigriver.samples.dao.PessoaDAO;
+import com.bigriver.samples.dao.VendaDAO;
 import com.bigriver.samples.model.Carro;
 import com.bigriver.samples.model.Endereco;
 import com.bigriver.samples.model.Pessoa;
-import com.bigriver.samples.service.VendaPessoa;
-import com.bigriver.samples.view.TelaCadastroPessoa;
-import com.bigriver.samples.view.TelaConsultaPessoa;
+import com.bigriver.samples.model.Venda;
+import com.bigriver.samples.service.VendaCarro;
+import com.bigriver.samples.view.TelaCadastro;
+import com.bigriver.samples.view.TelaConsulta;
 import com.bigriver.samples.view.TelaDashboard;
 import com.bigriver.samples.view.TelaVendas;
 import com.guigarage.flatterfx.FlatterFX;
@@ -31,31 +33,35 @@ public class DashBoard extends Application {
 		Endereco endereco = new Endereco();
 		pessoa.setEndereco(endereco);
 		
-		Carro carro = new Carro();
-		CarroDAO cDao = new CarroDAO();
-		
-		TelaCadastro<Carro> telaCadastroCarro = new TelaCadastro<>();
-		
 		//Carrega um DAO de Pessoas
-		PessoaDAO dao = new PessoaDAO();
-		
-		//Cria uma tela de cadastro de Pessoas
-		TelaCadastroPessoa<Pessoa> cadastro = new TelaCadastroPessoa<>("Cadastro Pessoa", pessoa, dao, endereco);
-	
-		//Cria um DAO para as Pessoas
 		PessoaDAO pessoaDao = new PessoaDAO();
 		
+		//Cria uma tela de cadastro de Pessoas
+		TelaCadastro<Pessoa> cadastro = new TelaCadastro<>("Cadastro Pessoa", pessoa, pessoaDao, endereco);
+		
 		//Cria uma Tela de Consulta de Pessoas
-		TelaConsultaPessoa<Pessoa> consulta = new TelaConsultaPessoa<>("Consulta Pessoas", pessoaDao);
+		TelaConsulta<Pessoa> consulta = new TelaConsulta<>("Consulta Pessoas", pessoaDao);
+		
+		//Carrega um objeto Carro
+		Carro carro = new Carro();
+		
+		//Carrega um DAO de Carro
+		CarroDAO carroDao = new CarroDAO();
+		
+		//Cria uma tela de cadastro de Carros
+		TelaCadastro<Carro> telaCadastroCarro = new TelaCadastro<>("Cadastro Carros", carro, carroDao);
+		
+		//Cria uma Tela de Consulta de Pessoas
+		TelaConsulta<Carro> consultaCarro = new TelaConsulta<>("Consulta Carros", carroDao);
 		
 		//Cria uma Venda Ilegal de Pessoas
-		VendaPessoa vendaPessoas = new VendaPessoa();
+		VendaCarro vendaCarro = new VendaCarro();
 		
 		//Cria uma Tela de Vendas
-		TelaVendas<Pessoa> telaVendas = new TelaVendas<>("Venda Ilegal Pessoas", vendaPessoas);
+		TelaVendas<Carro> telaVendas = new TelaVendas<>("Venda de Carros", vendaCarro);
 		
 		//Cria uma tela de DashBoard com as telas de Consulta e Cadastro de Pessoas
-		TelaDashboard telaDashboard = new TelaDashboard(consulta, cadastro, telaVendas);
+		TelaDashboard telaDashboard = new TelaDashboard(consulta, cadastro, consultaCarro, telaCadastroCarro, telaVendas);
 		
 		//Cria uma Scene (JavaFX) com a tela de consulta
 		Scene scene = new Scene(telaDashboard);

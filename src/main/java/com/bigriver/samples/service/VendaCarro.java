@@ -2,7 +2,8 @@ package com.bigriver.samples.service;
 
 import java.util.Collection;
 
-import com.bigriver.samples.dao.PessoaDAO;
+import com.bigriver.samples.dao.CarroDAO;
+import com.bigriver.samples.model.Carro;
 import com.bigriver.samples.model.Pessoa;
 
 /**
@@ -10,24 +11,24 @@ import com.bigriver.samples.model.Pessoa;
  * @author Rodney
  *
  */
-public class VendaPessoa implements ServicoVenda<Pessoa> {
+public class VendaCarro implements ServicoVenda<Carro> {
 	
 	//Um atributo primário para busca de pessoas
-	private PessoaDAO dao;
+	private CarroDAO dao;
 
-	public VendaPessoa() {
-		this.dao = new PessoaDAO();
+	public VendaCarro() {
+		this.dao = new CarroDAO();
 	}
 	
 	@Override
-	public Collection<Pessoa> todosNaoVendidos() {
+	public Collection<Carro> todosNaoVendidos() {
 		//Consultar todas as pessoas do banco de dados.
 		//Alterar para uma busca de produtos/itens não vendidos.
 		return dao.todos();
 	}
 
 	@Override
-	public void vender(Pessoa produto, Pessoa cliente) {
+	public void vender(Carro produto, Pessoa cliente) {
 		//Implementar uma lógica para a venda de um produto
 		System.out.format("Vendeu a pessoa %s, para %s", produto, cliente);
 	}

@@ -65,10 +65,10 @@ public class TelaDashboard extends GridPane {
 			super();
 			getStyleClass().add("ButtonNav");
 			
-			if (tela instanceof TelaCadastroPessoa<?>){
-				setText(((TelaCadastroPessoa<?>) tela).getTitulo());
-			}else if (tela instanceof TelaConsultaPessoa<?>){
-				setText(((TelaConsultaPessoa<?>) tela).getTitulo());
+			if (tela instanceof TelaCadastro<?>){
+				setText(((TelaCadastro<?>) tela).getTitulo());
+			}else if (tela instanceof TelaConsulta<?>){
+				setText(((TelaConsulta<?>) tela).getTitulo());
 			}else
 				setText(tela.getId());
 			setOnAction(evt -> changeTela(tela));
