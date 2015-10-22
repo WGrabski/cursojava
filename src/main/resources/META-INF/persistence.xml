@@ -10,7 +10,7 @@
             <!-- Dita o Driver para o BD MySQL -->
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 			<!-- Abre uma conexão local ao MySQL -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.25:3306/estouro_carros" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.25:3306/javai_carros" />
             <property name="javax.persistence.jdbc.user" value="aluno" />
             <property name="javax.persistence.jdbc.password" value="aluno" />
           	 
