@@ -2,7 +2,7 @@ package com.bigriver.samples;
 
 import com.bigriver.samples.dao.PessoaDAO;
 import com.bigriver.samples.model.Pessoa;
-import com.bigriver.samples.view.TelaConsulta;
+import com.bigriver.samples.view.TelaConsultaPessoa;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -24,7 +24,7 @@ public class AppConsulta extends Application {
 		//Cria um DAO para as Pessoas
 		PessoaDAO pessoaDao = new PessoaDAO();
 		//Cria uma Tela de Consulta de Pessoas
-		TelaConsulta<Pessoa> consulta = new TelaConsulta<>("Pessoas", pessoaDao);
+		TelaConsultaPessoa<Pessoa> consulta = new TelaConsultaPessoa<>("Pessoas", pessoaDao);
 		//Cria uma Scene (JavaFX) com a tela de consulta
 		Scene scene = new Scene(consulta);
 		

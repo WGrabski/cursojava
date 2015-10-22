@@ -18,7 +18,7 @@ import javafx.scene.layout.VBox;
  *
  * @param <T> Entidade / Model / que mapeia a Tabela do Banco de Dados
  */
-public class TelaConsulta<T> extends VBox {
+public class TelaConsultaPessoa<T> extends VBox {
 	
 	private DAO<T> dao;
 	
@@ -35,7 +35,7 @@ public class TelaConsulta<T> extends VBox {
 	 * @param titulo O titulo da tela
 	 * @param dao A classe para controle de interações com o BD
 	 */
-	public TelaConsulta(String titulo, DAO<T> dao){
+	public TelaConsultaPessoa(String titulo, DAO<T> dao){
 		super(10);
 		this.dao = dao;
 		this.titulo = titulo;

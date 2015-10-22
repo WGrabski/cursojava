@@ -3,7 +3,7 @@ package com.bigriver.samples;
 import com.bigriver.samples.dao.PessoaDAO;
 import com.bigriver.samples.model.Endereco;
 import com.bigriver.samples.model.Pessoa;
-import com.bigriver.samples.view.TelaCadastro;
+import com.bigriver.samples.view.TelaCadastroPessoa;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -29,7 +29,7 @@ public class AppCadastro extends Application
 		//Carrega um DAO de Pessoas
 		PessoaDAO dao = new PessoaDAO();
 		//Cria uma tela de cadastro de Pessoas
-		TelaCadastro<Pessoa> cadastro = new TelaCadastro<>("Cadastro Pessoa", pessoa, dao, endereco);
+		TelaCadastroPessoa<Pessoa> cadastro = new TelaCadastroPessoa<>("Cadastro Pessoa", pessoa, dao, endereco);
 		
 		//Cria a Scene (JavaFX) com a tela de Cadastro
 		Scene scene = new Scene(cadastro);
