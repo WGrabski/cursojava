@@ -23,7 +23,7 @@ public class Venda {
 		this.idVenda = idVenda;
 	}
 
-//	@OneToOne (mappedBy = "carroVend")
+	@OneToOne
 	public Carro getCarroVend() {
 		return carroVend;
 	}
@@ -32,8 +32,7 @@ public class Venda {
 		this.carroVend = carroVend;
 	}
 	
-//	@OneToOne (mappedBy = "client")
-	
+	@OneToOne
 	public Pessoa getClient() {
 		return client;
 	}
