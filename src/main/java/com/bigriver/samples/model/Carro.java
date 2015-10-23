@@ -2,6 +2,7 @@ package com.bigriver.samples.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Carro {
@@ -9,7 +10,17 @@ public class Carro {
 	private String marca, modelo, motorT;
 	private int ano;
 	private double valor;
+	private boolean vendido;
 	
+	@OneToOne(mappedBy = "venda")
+	public boolean isVendido() {
+		return vendido;
+	}
+
+	public void setVendido(boolean vendido) {
+		this.vendido = vendido;
+	}
+
 	public int getAno() {
 		return ano;
 	}

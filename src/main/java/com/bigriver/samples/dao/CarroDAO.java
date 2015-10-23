@@ -47,7 +47,7 @@ public class CarroDAO implements DAO<Carro> {
 		
 		EntityManager gerenteEntidades = BancoDeDados.abreEntityManager();
 		gerenteEntidades.getTransaction().begin();
-		//Cria uma QUERY que buscará TODAS as Pessoas no BD
+		//Cria uma QUERY que buscará TODOS os Carros no BD
 		@SuppressWarnings("unchecked")
 		Collection<Carro> todos = gerenteEntidades.createQuery("from Carro")
 				.getResultList();

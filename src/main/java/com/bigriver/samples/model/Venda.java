@@ -1,6 +1,7 @@
 package com.bigriver.samples.model;
 
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -64,7 +65,8 @@ public class Venda {
 	
 	@Override
 	public String toString() {
-		return "Venda " + idVenda + " em";
+		SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
+		return "Venda " + idVenda + " em " + formatador.format(formatador.format(dataVenda)).toString();
 	}
 	
 }
