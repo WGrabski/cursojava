@@ -19,9 +19,11 @@ public class VendaCarro implements ServicoVenda<Carro> {
 	
 	//Um atributo primário para busca de carros
 	private CarroDAO daoCarro;
+	private VendaDAO daoVenda;
 
 	public VendaCarro() {
 		this.daoCarro = new CarroDAO();
+		this.daoVenda = new VendaDAO();
 	}
 	
 	@Override
@@ -39,8 +41,7 @@ public class VendaCarro implements ServicoVenda<Carro> {
 		venda.setClient(cliente);
 		venda.setDataVenda(Date.from(Instant.now()));
 		produto.setVendido(true);
-		VendaDAO vendaDao = new VendaDao();
-		vendaDao.salvar(venda);
+		daoVenda.salvar(venda);
 		System.out.format("Vendeu o carro %s, para %s", produto, cliente);
 	}
 

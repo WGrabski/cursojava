@@ -2,7 +2,6 @@ package com.bigriver.samples.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class Carro {
