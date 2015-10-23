@@ -1,17 +1,25 @@
 package com.bigriver.samples.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import com.bigriver.samples.listener.VendaListener;
 
 @Entity
+@EntityListeners(VendaListener.class)
 public class Venda {
 	private int idVenda;
 	
 	private Carro carroVend;
 	private Pessoa client;
-	private String dataVenda;
+	private Date dataVenda;
 	
 	@Id
 	@GeneratedValue
@@ -41,16 +49,22 @@ public class Venda {
 		this.client = client;
 	}
 	
-	public String getDataVenda() {
+	@Temporal(TemporalType.TIMESTAMP)
+	public Date getDataVenda() {
 		return dataVenda;
 	}
 	
-	public void setDataVenda(String dataVenda) {
+	public void setDataVenda(Date dataVenda) {
 		this.dataVenda = dataVenda;
 	}
 	
 	public double desconto(double percentual){
 		return carroVend.getValor() * (percentual / 100);
+	}
+	
+	@Override
+	public String toString() {
+		return "Venda " + idVenda + " em";
 	}
 	
 }
