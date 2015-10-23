@@ -57,4 +57,18 @@ public class CarroDAO implements DAO<Carro> {
 		
 		return todos;
 	}
+	
+	public Collection<Carro> todosNaoVendidos(){
+		EntityManager gerenteEntidades = BancoDeDados.abreEntityManager();
+		gerenteEntidades.getTransaction().begin();
+		//Cria uma QUERY que buscará TODOS os Carros no BD
+		@SuppressWarnings("unchecked")
+		Collection<Carro> todos = gerenteEntidades.createQuery("SELECT c from Carro c WHERE c.vendido != TRUE")
+				.getResultList();
+		//Garante a conclusão da operação
+		gerenteEntidades.getTransaction().commit();
+		gerenteEntidades.close();
+		
+		return todos;
+	}
 }

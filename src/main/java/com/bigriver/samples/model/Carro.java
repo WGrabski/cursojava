@@ -12,7 +12,6 @@ public class Carro {
 	private double valor;
 	private boolean vendido;
 	
-	@OneToOne(mappedBy = "venda")
 	public boolean isVendido() {
 		return vendido;
 	}

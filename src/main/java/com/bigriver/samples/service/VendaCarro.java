@@ -1,6 +1,8 @@
 package com.bigriver.samples.service;
 
+import java.time.Instant;
 import java.util.Collection;
+import java.util.Date;
 
 import com.bigriver.samples.dao.CarroDAO;
 import com.bigriver.samples.dao.VendaDAO;
@@ -13,14 +15,12 @@ import com.bigriver.samples.model.Venda;
  * @author Rodney
  *
  */
-public class VendaCarro implements ServicoVenda<Venda> {
+public class VendaCarro implements ServicoVenda<Carro> {
 	
 	//Um atributo primário para busca de carros
-	private VendaDAO daoVenda;
 	private CarroDAO daoCarro;
 
 	public VendaCarro() {
-		this.daoVenda = new VendaDAO();
 		this.daoCarro = new CarroDAO();
 	}
 	
@@ -28,8 +28,7 @@ public class VendaCarro implements ServicoVenda<Venda> {
 	public Collection<Carro> todosNaoVendidos() {
 		//Consultar todas os carros do banco de dados.
 		//Alterar para uma busca de produtos/itens não vendidos.
-		Collection<Carro> var = daoCarro.todos();
-		
+		return daoCarro.todosNaoVendidos();
 	}
 
 	@Override
@@ -38,7 +37,10 @@ public class VendaCarro implements ServicoVenda<Venda> {
 		Venda venda = new Venda();
 		venda.setCarroVend(produto);
 		venda.setClient(cliente);
-		dao.salvar(venda);
+		venda.setDataVenda(Date.from(Instant.now()));
+		produto.setVendido(true);
+		VendaDAO vendaDao = new VendaDao();
+		vendaDao.salvar(venda);
 		System.out.format("Vendeu o carro %s, para %s", produto, cliente);
 	}
 
