@@ -28,7 +28,7 @@ public class VendaCarro implements ServicoVenda<Carro> {
 	
 	@Override
 	public Collection<Carro> todosNaoVendidos() {
-		//Consultar todas os carros do banco de dados.
+		//Consultar todas os carros não vendidos do banco de dados.
 		//Alterar para uma busca de produtos/itens não vendidos.
 		return daoCarro.todosNaoVendidos();
 	}
@@ -40,8 +40,8 @@ public class VendaCarro implements ServicoVenda<Carro> {
 		venda.setCarroVend(produto);
 		venda.setClient(cliente);
 		venda.setDataVenda(Date.from(Instant.now()));
-		produto.setVendido(true);
 		daoVenda.salvar(venda);
+		produto.setVendido(true);
 		System.out.format("Vendeu o carro %s, para %s", produto, cliente);
 	}
 
